@@ -6,7 +6,8 @@ import PropType from "prop-type";
 class Pagination extends React.Component {
   createPaginationElements = () => {
     // get parent props
-    const { itemsCount, pageSize, currentPage, onPageChange } = this.props;
+    const { pageSize, currentPage, onPageChange } = this.props;
+    const itemsCount = this.props.itemsCount;
     // calculate the number of pages based on the total movies and the page size
     const pageCount = Math.ceil(itemsCount / pageSize);
     if (pageCount === 1) return null;
