@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { getMovies } from "../services/fakeMovieService";
-import Pagination from "../common/Pagination";
+import Pagination from "./common/Pagination";
 import { getMoviesToDisplay } from "../utils/Pagination";
-import ListGroup from "../common/ListGroup";
+import ListGroup from "./common/ListGroup";
 import MoviesTable from "./MoviesTable";
 import "bootstrap/dist/css/bootstrap.css";
 import TopMessage from "./TopMessage";
-import NavBar from "./NavBar";
 
 class Movies extends Component {
   state = {
@@ -89,10 +88,18 @@ class Movies extends Component {
 
   // Evenets Handler
 
-  handleDeleteMovie(id) {
+  handleDeleteMovie = (id) => {
     const movies = this.state.movies.filter((movie) => movie._id !== id);
-    this.setState({ movies });
-  }
+    const moviesCatalog = [...movies];
+    this.setState({ movies, moviesCatalog });
+    const moviesToDisplay = getMoviesToDisplay(
+      1,
+      moviesCatalog,
+      this.state.pageSize
+    );
+    console.log(moviesToDisplay);
+    this.setState({ moviesCatalog, currentPage: 1, moviesToDisplay });
+  };
 
   handleLikeButtonClasses = (movie) => {
     let classes = "text";

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getGenres } from "../services/fakeGenreService";
+import { getGenres } from "../../services/fakeGenreService";
 
 class ListGroup extends Component {
   state = {

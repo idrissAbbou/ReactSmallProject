@@ -8,6 +8,8 @@ import NavBar from "./components/NavBar";
 import PageNotFound from "./components/PageNotFound";
 import MovieDetails from "./components/MovieDetails";
 import LoginForm from "./components/LoginForm";
+import Register from "./components/Register";
+import NewMovie from "./components/NewMovie";
 
 class App extends PureComponent {
   render() {
@@ -19,10 +21,12 @@ class App extends PureComponent {
             <Switch>
               <Route path="/customers" component={Customers} />
               <Route path="/rentals" component={Rentals} />
-              <Route path="/movies" component={Movies} />
-              <Route path="/notFound" component={PageNotFound} />
+              <Route exact path="/movies" component={Movies} />
+              <Route path="/movies/new" component={NewMovie} />
               <Route path="/movie-details/:id?" component={MovieDetails} />
+              <Route path="/notFound" component={PageNotFound} />
               <Route path="/login" component={LoginForm} />
+              <Route path="/register" component={Register} />
               <Redirect exact from="/" to="/movies" />
               <Redirect to="/notFound" />
             </Switch>

@@ -41,6 +41,16 @@ class NavBar extends Component {
                 Login
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/register">
+                Register
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/movies/new">
+                New Movie
+              </NavLink>
+            </li>
           </ul>
         </div>
       </nav>
