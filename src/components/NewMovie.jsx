@@ -34,7 +34,7 @@ class NewMovie extends Form {
   doSubmit = (e) => {
     const movie = { ...this.state.data };
     movie._id = _.uniqueId();
-    console.log(insertNewMovie(movie));
+    this.props.history.replace("/");
   };
 
   render() {
